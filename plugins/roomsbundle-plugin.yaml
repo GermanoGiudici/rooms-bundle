@@ -1,0 +1,20 @@
+kind: "EntandoPlugin"
+apiVersion: "entando.org/v1"
+metadata:
+  name: "roomsbundle-plugin"
+spec:
+  image: germanogiudici/roomsbundle:0.0.1-SNAPSHOT
+  replicas: 1
+  dbms: postgresql
+  parameters: {}
+  ingressPath: "/roomsbundle"
+  healthCheckPath: "/management/health"
+  securityLevel: "strict"
+  connectionConfigNames: []
+  permissions: []
+  roles:
+  - name: roomsbundle-admin
+    code: roomsbundle-admin
+  - name: room-admin
+    code: "room-admin"
+# entando-needle-descriptor-add-roles - Entando blueprint will add roles here
